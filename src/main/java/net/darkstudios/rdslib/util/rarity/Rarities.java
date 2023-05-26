@@ -1,16 +1,18 @@
 package net.darkstudios.rdslib.util.rarity;
 
+import net.darkstudios.rdslib.RDSLib;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.HoverEvent;
 import net.minecraft.network.chat.Style;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Rarity;
+import org.apache.commons.lang3.RandomStringUtils;
 
 
 public class Rarities {
     /* NON-COLOR SPECIFIC */
-    public static final Rarity DEPENDENCY_MISSING = new Rarities.Builder().color(TextColor.fromRgb(0xFF0000)).bold().underline().build();
+    public static final Rarity DEPENDENCY_MISSING = new Rarities.Builder().name("dep_missing").color(TextColor.fromRgb(0xFF0000)).bold().underline().build();
 
     /* NO COLORS */
     public static final Rarity NORMAL = createRarity("normal", null);
@@ -701,6 +703,10 @@ public class Rarities {
         }
 
         public Rarity build() {
+            if (this.name == null) {
+                this.name = RandomStringUtils.randomAlphanumeric(12);
+            }
+            RDSLib.LOGGER.info(String.format("Creating Rarity \"%s\"", this.name));
             return Rarities.createRarity(this.name, this.color, this.bold, this.italic, this.underline, this.strikethrough, this.obfuscate, this.clickEvent, this.hoverEvent, this.font);
         }
     }
