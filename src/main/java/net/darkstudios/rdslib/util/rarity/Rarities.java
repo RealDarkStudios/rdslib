@@ -9,6 +9,9 @@ import net.minecraft.world.item.Rarity;
 
 
 public class Rarities {
+    /* NON-COLOR SPECIFIC */
+    public static final Rarity DEPENDENCY_MISSING = new Rarities.Builder().color(TextColor.fromRgb(0xFF0000)).bold().underline().build();
+
     /* NO COLORS */
     public static final Rarity NORMAL = createRarity("normal", null);
     public static final Rarity BOLD = createRarity("b", null, true, false, false, false, false);
