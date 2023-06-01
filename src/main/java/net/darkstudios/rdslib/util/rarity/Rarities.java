@@ -710,4 +710,8 @@ public class Rarities {
             return Rarities.createRarity(this.name, this.color, this.bold, this.italic, this.underline, this.strikethrough, this.obfuscate, this.clickEvent, this.hoverEvent, this.font);
         }
     }
+
+    public static Style getStyle(Rarity rarity) {
+        return rarity.getStyleModifier().apply(Style.EMPTY);
+    }
 }
