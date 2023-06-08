@@ -4,7 +4,6 @@ import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.ArmorItem;
 import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.registries.RegistryObject;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -25,40 +24,40 @@ public class ItemHelper {
         return new ArmorItem(pMaterial, EquipmentSlot.FEET, pProperties);
     }
 
-    public static <T extends ArmorItem> T customHelmet(Class<T> clazz, ArmorEffectMaterial pMaterial, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customHelmet(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(ArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
+                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
                     .newInstance(pMaterial, EquipmentSlot.HEAD, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static <T extends ArmorItem> T customChestplate(Class<T> clazz, ArmorEffectMaterial pMaterial, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customChestplate(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(ArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
+                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
                     .newInstance(pMaterial, EquipmentSlot.CHEST, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static <T extends ArmorItem> T customLeggings(Class<T> clazz, ArmorEffectMaterial pMaterial, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customLeggings(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(ArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
+                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
                     .newInstance(pMaterial, EquipmentSlot.LEGS, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
     }
 
-    public static <T extends ArmorItem> T customBoots(Class<T> clazz, ArmorEffectMaterial pMaterial, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customBoots(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(ArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
+                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
                     .newInstance(pMaterial, EquipmentSlot.FEET, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);

@@ -1,29 +1,33 @@
 package net.darkstudios.rdslib.util.item;
 
 import net.darkstudios.rdslib.RDSLib;
-import net.darkstudios.rdslib.util.rarity.ItemTier;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.level.Level;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
 
 public class TieredItem extends Item {
+    private final ItemTier[] tiers;
     private final int numTiers;
     private int curTier;
-    private final ItemTier[] tiers;
-    private final Rarity rarity;
+    private Rarity rarity;
 
-    public TieredItem(Item.Properties pProperties, ItemTier[] tiers) {
-        this(pProperties, tiers, 0);
+    public TieredItem(ItemTier[] tiers, Properties pProperties) {
+        this(tiers, 0, pProperties);
     }
 
-    public TieredItem(Item.Properties pProperties, ItemTier[] pTiers, int startingTier) {
+    public TieredItem(ItemTier[] pTiers, int startingTier, Properties pProperties) {
         super(pProperties);
         this.numTiers = pTiers.length;
         if (this.numTiers == 0) throw new IndexOutOfBoundsException("Number of tiers can't be 0!");
@@ -31,20 +35,17 @@ public class TieredItem extends Item {
         this.curTier = startingTier;
         this.tiers = pTiers;
         this.rarity = pTiers[startingTier].getRarity();
-
-        RDSLib.LOGGER.warn("TieredItem is BROKEN! Please refrain from using it in this version!");
     }
 
     public void upgradeTier() {
-        if (this.curTier != this.numTiers - 1) {
-            this.curTier++;
-            RDSLib.LOGGER.info(String.format("Tier increased to %d", this.curTier));
-        }
+        upgradeTier(1);
     }
 
     public void upgradeTier(int numToIncrease) {
         if (this.curTier != this.numTiers - 1) {
             this.curTier += numToIncrease;
+
+            RDSLib.LOGGER.info(String.format("Tier increased to %d", this.curTier));
         }
     }
 
@@ -62,16 +63,7 @@ public class TieredItem extends Item {
 
     @Override
     public Rarity getRarity(ItemStack pStack) {
-        Rarity nextRarity;
-        if (this.curTier + 1 < this.numTiers - 1) {
-            nextRarity = this.tiers[this.curTier + 1].getRarity();
-            RDSLib.LOGGER.info(String.format("Current Tier: %d, Number of Tiers: %d, New Rarity: %s", this.curTier, this.numTiers - 1, nextRarity.toString()));
-        } else {
-            nextRarity = this.tiers[this.curTier].getRarity();
-            RDSLib.LOGGER.info(String.format("Current Tier: %d, Number of Tiers: %d, Rarity: %s", this.curTier, this.numTiers - 1, nextRarity.toString()));
-        }
-
-        return pStack.isEnchanted() ? nextRarity : this.rarity;
+        return tiers[pStack.getTag().getInt("currentTier") - 1].getRarity();
     }
 
     @Override
@@ -79,16 +71,25 @@ public class TieredItem extends Item {
         pTooltipComponents.add(Component.literal(String.format("Rarity Level %s/%s", this.curTier + 1, this.numTiers)));
     }
 
-    //    @Override
-//    public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        TieredItem that = (TieredItem) o;
-//        return numTiers == that.numTiers && curTier == that.curTier && tiers.equals(that.tiers) && rarity == that.rarity;
-//    }
-//
-//    @Override
-//    public int hashCode() {
-//        return Objects.hash(numTiers, curTier, tiers, rarity);
-//    }
+    @Override
+    public void inventoryTick(ItemStack pStack, Level pLevel, Entity pEntity, int pSlotId, boolean pIsSelected) {
+        if (!pStack.hasTag() || !pStack.getTag().contains("currentTier")) {
+            CompoundTag compoundTag = new CompoundTag();
+
+            compoundTag.putInt("currentTier", this.curTier + 1);
+
+            pStack.setTag(compoundTag);
+        } else {
+            if (this.curTier != pStack.getTag().getInt("currentTier") - 1 && this.curTier != 0) {
+                CompoundTag compoundTag = pStack.getTag();
+
+                compoundTag.putInt("currentTier", this.curTier + 1);
+
+                pStack.setTag(compoundTag);
+            } else {
+                this.curTier = pStack.getTag().getInt("currentTier") - 1;
+            }
+        }
+
+    }
 }

@@ -8,9 +8,9 @@ import net.minecraft.world.item.ArmorMaterial;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 public class ArmorEffectItem extends ArmorItem {
-    private final ArmorEffectMaterial effectMaterial;
+    private final IArmorEffectMaterial effectMaterial;
 
-    public ArmorEffectItem(ArmorEffectMaterial material, EquipmentSlot slot, Properties settings) {
+    public ArmorEffectItem(IArmorEffectMaterial material, EquipmentSlot slot, Properties settings) {
         super(material, slot, settings);
         this.effectMaterial = material;
     }
