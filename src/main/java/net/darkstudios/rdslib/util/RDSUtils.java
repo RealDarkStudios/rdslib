@@ -12,7 +12,7 @@ public class RDSUtils {
     public static int THIRTY_MINUTES = 36000;
     public static int HOUR = 72000;
 
-    private static <T> T[] removeNulls(T[] pItems) {
+    public static <T> T[] removeNulls(T[] pItems) {
         ArrayList<T> outList = new ArrayList<>();
 
         for (T item: pItems) {
