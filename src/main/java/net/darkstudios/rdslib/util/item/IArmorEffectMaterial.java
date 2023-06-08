@@ -8,7 +8,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 import java.util.List;
 
-public interface ArmorEffectMaterial extends ArmorMaterial {
+public interface IArmorEffectMaterial extends ArmorMaterial {
     int getDurabilityForSlot(EquipmentSlot pSlot);
 
     int getDefenseForSlot(EquipmentSlot pSlot);

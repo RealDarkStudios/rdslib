@@ -4,7 +4,7 @@ license = "MIT"
 #issueTrackerURL="http://my.issue.tracker/" #optional
 [[mods]] #mandatory
 modId = "rdslib" #mandatory
-version = "1.19.2-0.1.9.1" #mandatory
+version = "1.19.2-0.2.0" #mandatory
 displayName = "RDSLib" #mandatory
 #updateJSONURL="http://myurl.me/" #optional
 #displayURL="http://example.com/" #optional
