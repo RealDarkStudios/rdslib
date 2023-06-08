@@ -27,8 +27,8 @@ public class ItemHelper {
     public static <T extends ArmorItem> T customHelmet(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
-                    .newInstance(pMaterial, EquipmentSlot.HEAD, pProperties);
+                    .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Item.Properties.class)
+                    .newInstance(pMaterial, ArmorItem.Type.HELMET, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
@@ -37,8 +37,8 @@ public class ItemHelper {
     public static <T extends ArmorItem> T customChestplate(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
-                    .newInstance(pMaterial, EquipmentSlot.CHEST, pProperties);
+                    .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Item.Properties.class)
+                    .newInstance(pMaterial, ArmorItem.Type.CHESTPLATE, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
@@ -47,8 +47,8 @@ public class ItemHelper {
     public static <T extends ArmorItem> T customLeggings(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
-                    .newInstance(pMaterial, EquipmentSlot.LEGS, pProperties);
+                    .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Item.Properties.class)
+                    .newInstance(pMaterial, ArmorItem.Type.LEGGINGS, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
@@ -57,8 +57,8 @@ public class ItemHelper {
     public static <T extends ArmorItem> T customBoots(Class<T> clazz, IArmorEffectMaterial pMaterial, Item.Properties pProperties) {
         try {
             return clazz
-                    .getConstructor(IArmorEffectMaterial.class, EquipmentSlot.class, Item.Properties.class)
-                    .newInstance(pMaterial, EquipmentSlot.FEET, pProperties);
+                    .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Item.Properties.class)
+                    .newInstance(pMaterial, ArmorItem.Type.BOOTS, pProperties);
         } catch (InstantiationException | IllegalAccessException | InvocationTargetException | NoSuchMethodException e) {
             throw new RuntimeException(e);
         }
