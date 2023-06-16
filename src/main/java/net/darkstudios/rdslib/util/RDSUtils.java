@@ -21,8 +21,7 @@ public class RDSUtils {
             }
         }
 
-        T[] out = (T[]) outList.toArray(new Array[outList.size()]);
-        return out;
+        return (T[]) outList.toArray(new Array[outList.size()]);
     }
 
     public static int rgbToInt(int r, int g, int b) {
