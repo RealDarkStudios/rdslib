@@ -17,7 +17,7 @@ plugins {
 apply plugin: 'org.spongepowered.mixin'
 
 group = 'net.darkstudios'
-version = mc_ver + "-" + mod_ver
+version = mod_ver
 
 java {
     archivesBaseName = 'rdslib'
@@ -38,7 +38,7 @@ minecraft {
     //
     // Use non-default mappings at your own risk. They may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'parchment', version: parchment_ver + "-" + mc_ver
+    mappings channel: mapping_channel, version: mapping_version
     // mappings channel: 'official', version: '1.19.2'
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -164,6 +164,23 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
+}
+
+def resourceTargets = ['META-INF/mods.toml', 'pack.mcmeta']
+def replaceProperties = [
+        minecraft_ver: mc_ver, minecraft_version_range: minecraft_version_range,
+        forge_ver: forge_ver, forge_version_range: forge_version_range,
+        loader_version_range: loader_version_range,
+        mod_id: mod_id, mod_name: mod_name, mod_license: mod_license, mod_ver: mod_ver,
+        mod_authors: mod_authors, mod_description: mod_description
+]
+processResources {
+    inputs.properties replaceProperties
+    replaceProperties.put 'project', project
+
+    filesMatching(resourceTargets) {
+        expand replaceProperties
+    }
 }
 
 // Example for how to get properties into the manifest for reading at runtime.
