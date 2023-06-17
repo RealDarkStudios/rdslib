@@ -136,6 +136,10 @@ repositories {
         name = "ModMaven"
         url = "https://modmaven.dev"
     }
+    maven {
+        name = "TerraformersMC"
+        url = "https://maven.terraformersmc.com/"
+    }
 }
 
 mixin {
@@ -157,6 +161,9 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-${mc_ver}-forge-api:${jei_ver}"))
     // at runtime, use the full JEI jar for Forge
     runtimeOnly(fg.deobf("mezz.jei:jei-${mc_ver}-forge:${jei_ver}"))
+
+    compileOnly fg.deobf("dev.emi:emi-forge:${emi_ver}:api")
+    runtimeOnly fg.deobf("dev.emi:emi-forge:${emi_ver}")
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
