@@ -13,7 +13,6 @@ public class RecipeUtil {
         if (level == null) {
             throw new NullPointerException("level must not be null.");
         }
-        RegistryAccess registryAccess = level.registryAccess();
-        return recipe.getResultItem(registryAccess);
+        return recipe.getResultItem();
     }
 }

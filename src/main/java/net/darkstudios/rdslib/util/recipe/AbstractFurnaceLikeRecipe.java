@@ -33,7 +33,7 @@ public abstract class AbstractFurnaceLikeRecipe implements Recipe<SimpleContaine
         return this.ingredient.test(pInv.getItem(0));
     }
 
-    public ItemStack assemble(SimpleContainer p_43746_, RegistryAccess p_267063_) {
+    public ItemStack assemble(SimpleContainer p_43746_) {
         return this.result.copy();
     }
 
@@ -57,7 +57,7 @@ public abstract class AbstractFurnaceLikeRecipe implements Recipe<SimpleContaine
         return this.experience;
     }
 
-    public ItemStack getResultItem(RegistryAccess registryAccess) {
+    public ItemStack getResultItem() {
         return this.result;
     }
 
