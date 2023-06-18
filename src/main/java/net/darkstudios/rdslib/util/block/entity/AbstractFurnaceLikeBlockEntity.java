@@ -216,14 +216,14 @@ public abstract class AbstractFurnaceLikeBlockEntity extends BlockEntity impleme
 
     private boolean canBurn(RegistryAccess registryAccess, AbstractFurnaceLikeRecipe recipe, ItemStackHandler items, int currentItems) {
         if (!items.getStackInSlot(0).isEmpty() && recipe != null) {
-            ItemStack recipeResult = recipe.assemble(new SimpleContainer(3), registryAccess);
+            ItemStack recipeResult = recipe.assemble(new SimpleContainer(3));
             if (recipeResult.isEmpty()) {
                 return false;
             } else {
                 ItemStack resultSlot = items.getStackInSlot(2);
                 if (resultSlot.isEmpty()) {
                     return true;
-                } else if (!ItemStack.isSameItem(resultSlot, recipeResult)) {
+                } else if (!ItemStack.isSame(resultSlot, recipeResult)) {
                     return false;
                 } else if (resultSlot.getCount() + recipeResult.getCount() <= currentItems && resultSlot.getCount() + recipeResult.getCount() <= resultSlot.getMaxStackSize()) { // Forge fix: make furnace respect stack sizes in furnace recipes
                     return true;
@@ -239,7 +239,7 @@ public abstract class AbstractFurnaceLikeBlockEntity extends BlockEntity impleme
     private boolean burn(RegistryAccess registryAccess, AbstractFurnaceLikeRecipe recipe, ItemStackHandler items, int currentItems) {
         if (recipe != null && this.canBurn(registryAccess, recipe, items, currentItems)) {
             ItemStack ingredientSlot = items.getStackInSlot(0);
-            ItemStack recipeResult = recipe.assemble(new SimpleContainer(3), registryAccess);
+            ItemStack recipeResult = recipe.assemble(new SimpleContainer(3));
             ItemStack resultSlot = items.getStackInSlot(2);
             if (resultSlot.isEmpty()) {
                 items.setStackInSlot(2, recipeResult.copy());
@@ -329,7 +329,7 @@ public abstract class AbstractFurnaceLikeBlockEntity extends BlockEntity impleme
     }
 
     public void awardUsedRecipesAndPopExperience(ServerPlayer pPlayer) {
-        List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.serverLevel(), pPlayer.position());
+        List<Recipe<?>> list = this.getRecipesToAwardAndPopExperience(pPlayer.getLevel(), pPlayer.position());
         pPlayer.awardRecipes(list);
     }
 
