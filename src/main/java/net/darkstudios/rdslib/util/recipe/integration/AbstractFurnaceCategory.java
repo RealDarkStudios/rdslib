@@ -9,7 +9,7 @@ import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
-import net.darkstudios.rdslib.util.recipe.FurnaceRecipe;
+import net.darkstudios.rdslib.util.recipe.AbstractFurnaceLikeRecipe;
 import net.darkstudios.rdslib.util.recipe.RecipeUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
@@ -21,7 +21,7 @@ import net.minecraft.world.level.block.Block;
 import static mezz.jei.api.recipe.RecipeIngredientRole.INPUT;
 import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
-public abstract class AbstractFurnaceCategory<T extends FurnaceRecipe> extends FurnaceVariantRecipeCategory<T> {
+public abstract class AbstractFurnaceCategory<T extends AbstractFurnaceLikeRecipe> extends FurnaceVariantRecipeCategory<T> {
     private final IDrawable background;
     private final int regularCookTime;
     private final IDrawable icon;

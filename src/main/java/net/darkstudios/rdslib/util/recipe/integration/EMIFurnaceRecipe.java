@@ -6,7 +6,7 @@ import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
-import net.darkstudios.rdslib.util.recipe.FurnaceRecipe;
+import net.darkstudios.rdslib.util.recipe.AbstractFurnaceLikeRecipe;
 import net.darkstudios.rdslib.util.recipe.RecipeUtil;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.network.chat.Component;
@@ -21,11 +21,11 @@ public class EMIFurnaceRecipe implements EmiRecipe {
     private final EmiRecipeCategory category;
     private final EmiIngredient input;
     private final EmiStack output;
-    private final FurnaceRecipe recipe;
+    private final AbstractFurnaceLikeRecipe recipe;
     private final int fuelMultiplier;
     private final boolean infiniBurn;
 
-    public EMIFurnaceRecipe(FurnaceRecipe recipe, EmiRecipeCategory category, int fuelMultiplier, boolean infiniBurn) {
+    public EMIFurnaceRecipe(AbstractFurnaceLikeRecipe recipe, EmiRecipeCategory category, int fuelMultiplier, boolean infiniBurn) {
         this.id = recipe.getId();
         this.category = category;
         input = EmiIngredient.of(recipe.getIngredients().get(0));

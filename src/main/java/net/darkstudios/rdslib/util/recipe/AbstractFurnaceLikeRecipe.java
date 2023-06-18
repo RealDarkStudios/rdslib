@@ -1,30 +1,23 @@
 package net.darkstudios.rdslib.util.recipe;
 
-import com.google.gson.JsonElement;
-import com.google.gson.JsonObject;
 import net.minecraft.core.NonNullList;
 import net.minecraft.core.RegistryAccess;
-import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.util.GsonHelper;
-import net.minecraft.world.Container;
 import net.minecraft.world.SimpleContainer;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
-import org.jetbrains.annotations.NotNull;
 
-public abstract class FurnaceRecipe implements Recipe<SimpleContainer> {
+public abstract class AbstractFurnaceLikeRecipe implements Recipe<SimpleContainer> {
     protected final ResourceLocation id;
     protected final String group;
     protected final Ingredient ingredient;
     protected final ItemStack result;
     protected final float experience;
     protected final int cookingTime;
-    private final RecipeType<? extends FurnaceRecipe> type;
+    private final RecipeType<? extends AbstractFurnaceLikeRecipe> type;
 
-    public FurnaceRecipe(ResourceLocation pId, RecipeType<? extends FurnaceRecipe> pType, String pGroup, Ingredient pIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
+    public AbstractFurnaceLikeRecipe(ResourceLocation pId, RecipeType<? extends AbstractFurnaceLikeRecipe> pType, String pGroup, Ingredient pIngredient, ItemStack pResult, float pExperience, int pCookingTime) {
         this.type = pType;
         this.id = pId;
         this.group = pGroup;
