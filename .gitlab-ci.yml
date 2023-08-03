@@ -20,13 +20,9 @@ before_script:
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
 
-setup:
-  stage: build
-  script: gradle wrapper --gradle-version 8.1.1
-
 build:
   stage: build
-  script: gradle build --build-cache assemble
+  script: gradlew build --build-cache assemble
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: push
@@ -36,7 +32,7 @@ build:
 
 test:
   stage: test
-  script: gradle check
+  script: gradlew check
   cache:
     key: "$CI_COMMIT_REF_NAME"
     policy: pull
