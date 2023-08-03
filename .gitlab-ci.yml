@@ -17,9 +17,10 @@
 # https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Getting-Started.gitlab-ci.yml
 
 before_script:
+  - umask 022
+  - chmod +x ./gradlew
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
-  - chmod -X ./gradlew
 
 build:
   stage: build
