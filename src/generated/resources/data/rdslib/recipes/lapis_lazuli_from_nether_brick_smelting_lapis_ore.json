@@ -1,0 +1,10 @@
+{
+  "type": "rdslib:nether_brick_furnace",
+  "cookingtime": 100,
+  "experience": 0.2,
+  "group": "lapis_lazuli",
+  "ingredient": {
+    "item": "minecraft:lapis_ore"
+  },
+  "result": "minecraft:lapis_lazuli"
+}

@@ -1,0 +1,10 @@
+{
+  "type": "rdslib:nether_brick_furnace",
+  "cookingtime": 100,
+  "experience": 1.0,
+  "group": "emerald",
+  "ingredient": {
+    "item": "minecraft:emerald_ore"
+  },
+  "result": "minecraft:emerald"
+}
