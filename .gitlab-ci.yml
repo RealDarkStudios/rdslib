@@ -3,7 +3,6 @@ before_script:
   - chmod +x ./gradlew
   - GRADLE_USER_HOME="$(pwd)/.gradle"
   - export GRADLE_USER_HOME
-  - chmod -X ./gradlew
 
 build:
   stage: build
