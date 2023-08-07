@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.recipe.integration;
+package net.realdarkstudios.rdslib.recipe.integration.jei;
 
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;

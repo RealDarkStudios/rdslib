@@ -67,7 +67,7 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
     };;
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     protected final ContainerData data;
-    private int defaultCookingTime;
+    private final int defaultCookingTime;
     private int cookingProgress = 0;
     private int maxCookingProgress;
     private int litProgress = 0;
@@ -216,6 +216,8 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
                 recipe = Optional.empty();
             }
 
+            recipe.ifPresent(abstractFurnaceLikeRecipe -> pEntity.maxCookingProgress = getTotalCookTime(abstractFurnaceLikeRecipe));
+
             int i = 64;
             if (!pEntity.isLit() && recipe.isPresent() && pEntity.canBurn(pLevel.registryAccess(), recipe.get(), pEntity.itemHandler, i)) {
                 pEntity.litProgress = pEntity.getBurnDuration(ingredient);
@@ -240,7 +242,6 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
                 setChanged(pLevel, pPos, pState);
                 if (pEntity.cookingProgress == pEntity.maxCookingProgress) {
                     pEntity.cookingProgress = 0;
-                    pEntity.maxCookingProgress = getTotalCookTime(recipe.get());
                     if (pEntity.burn(pLevel.registryAccess(), recipe.get(), pEntity.itemHandler, i)) {
                         pEntity.setRecipeUsed(recipe.get());
                     }

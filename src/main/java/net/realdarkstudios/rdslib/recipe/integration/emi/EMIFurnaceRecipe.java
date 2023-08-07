@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.recipe.integration;
+package net.realdarkstudios.rdslib.recipe.integration.emi;
 
 import dev.emi.emi.api.recipe.EmiRecipe;
 import dev.emi.emi.api.recipe.EmiRecipeCategory;

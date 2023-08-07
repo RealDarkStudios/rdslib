@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.recipe.integration;
+package net.realdarkstudios.rdslib.recipe.integration.jei;
 
 import mezz.jei.api.constants.ModIds;
 import mezz.jei.api.gui.drawable.IDrawableAnimated;

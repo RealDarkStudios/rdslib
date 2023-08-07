@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.recipe.integration;
+package net.realdarkstudios.rdslib.recipe.integration.emi;
 
 import it.unimi.dsi.fastutil.doubles.Double2ObjectFunction;
 import net.minecraft.network.chat.Component;

@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.recipe.integration;
+package net.realdarkstudios.rdslib.recipe.integration.emi;
 
 import net.minecraft.network.chat.Component;
 
