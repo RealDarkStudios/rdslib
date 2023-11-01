@@ -16,7 +16,6 @@ import net.realdarkstudios.rdslib.registry.RegistryManager;
 import net.realdarkstudios.rdslib.util.Version;
 import org.slf4j.Logger;
 
-
 @Mod(RDSLib.MODID)
 public class RDSLib {
     public static final String MODID = "rdslib";

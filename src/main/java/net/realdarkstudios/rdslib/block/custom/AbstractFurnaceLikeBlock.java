@@ -29,7 +29,14 @@ import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
 
+@Deprecated(since = "3.0.3.0")
 public abstract class AbstractFurnaceLikeBlock extends BaseEntityBlock {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockV3} instead
+     * @deprecated Since: 3.0.3.0
+     */
+
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
