@@ -8,7 +8,13 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 
+@Deprecated(since = "4.0.3.0")
 public abstract class AbstractFurnaceLikeRecipe implements Recipe<Container> {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeRecipeV2} instead
+     * @deprecated Since: 4.0.3.0
+     */
     public final ResourceLocation id;
     public final String group;
     public final Ingredient ingredient;

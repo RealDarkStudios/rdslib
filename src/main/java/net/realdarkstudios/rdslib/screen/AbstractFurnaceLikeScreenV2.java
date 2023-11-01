@@ -8,7 +8,13 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 
+@Deprecated(since = "4.0.3.0")
 public abstract class AbstractFurnaceLikeScreenV2<T extends AbstractFurnaceLikeMenuV2> extends AbstractContainerScreen<T> {
+    /**
+     * This class is now deprecated.
+     * Please use {@link } instead
+     * @deprecated Since: 4.0.3.0
+     */
     private final ResourceLocation TEXTURE;
     public AbstractFurnaceLikeScreenV2(T pMenu, Inventory pPlayerInventory, Component pTitle, ResourceLocation pTexture) {
         super(pMenu, pPlayerInventory, pTitle);

@@ -1,4 +1,4 @@
-package net.realdarkstudios.rdslib.block;
+package net.realdarkstudios.rdslib.block.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -24,13 +24,19 @@ import net.minecraft.world.phys.BlockHitResult;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 import net.minecraftforge.network.NetworkHooks;
-import net.realdarkstudios.rdslib.block.entity.AbstractFurnaceLikeBlockEntityV2;
+import net.realdarkstudios.rdslib.block.entity.AbstractFurnaceLikeBlockEntity;
 
-public abstract class AbstractFurnaceLikeBlockV2 extends BaseEntityBlock {
+@Deprecated(since = "4.0.3.0")
+public abstract class AbstractFurnaceLikeBlock extends BaseEntityBlock {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockV3} instead
+     * @deprecated Since: 4.0.3.0
+     */
     public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
     public static final BooleanProperty LIT = BlockStateProperties.LIT;
 
-    public AbstractFurnaceLikeBlockV2(Properties pProperties) {
+    public AbstractFurnaceLikeBlock(Properties pProperties) {
         super(pProperties);
     }
 
@@ -48,8 +54,8 @@ public abstract class AbstractFurnaceLikeBlockV2 extends BaseEntityBlock {
     public void onRemove(BlockState pState, Level pLevel, BlockPos pPos, BlockState pNewState, boolean pIsMoving) {
         if (pState.getBlock() != pNewState.getBlock()) {
             BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
-            if (blockEntity instanceof AbstractFurnaceLikeBlockEntityV2) {
-                ((AbstractFurnaceLikeBlockEntityV2) blockEntity).drops();
+            if (blockEntity instanceof AbstractFurnaceLikeBlockEntity) {
+                ((AbstractFurnaceLikeBlockEntity) blockEntity).drops();
             }
         }
         super.onRemove(pState, pLevel, pPos, pNewState, pIsMoving);
@@ -101,8 +107,8 @@ public abstract class AbstractFurnaceLikeBlockV2 extends BaseEntityBlock {
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
         if (!pLevel.isClientSide()) {
             BlockEntity entity = pLevel.getBlockEntity(pPos);
-            if(entity instanceof AbstractFurnaceLikeBlockEntityV2) {
-                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (AbstractFurnaceLikeBlockEntityV2) entity, pPos);
+            if(entity instanceof AbstractFurnaceLikeBlockEntity) {
+                NetworkHooks.openScreen(((ServerPlayer)pPlayer), (AbstractFurnaceLikeBlockEntity) entity, pPos);
             } else {
                 throw new IllegalStateException("Our Container provider is missing!");
             }

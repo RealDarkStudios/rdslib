@@ -7,9 +7,9 @@ import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.entry.type.VanillaEntryTypes;
 import me.shedaniel.rei.api.common.registry.RecipeManagerContext;
 import me.shedaniel.rei.api.common.util.EntryIngredients;
-import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.item.crafting.Recipe;
+import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipeV2;
 
 import java.util.Collections;
 import java.util.List;
@@ -20,7 +20,7 @@ public abstract class FurnaceLikeDisplay extends BasicDisplay implements SimpleG
     private float xp;
     private double cookTime;
 
-    public FurnaceLikeDisplay(AbstractFurnaceLikeRecipe recipe) {
+    public FurnaceLikeDisplay(AbstractFurnaceLikeRecipeV2 recipe) {
         this(EntryIngredients.ofIngredients(recipe.getIngredients()), Collections.singletonList(EntryIngredient.of(EntryStack.of(VanillaEntryTypes.ITEM, recipe.getResultItem(BasicDisplay.registryAccess())))),
                 recipe, recipe.getExperience(), recipe.getCookingTime());
     }

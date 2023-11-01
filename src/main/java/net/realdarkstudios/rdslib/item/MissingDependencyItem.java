@@ -14,7 +14,7 @@ import java.util.List;
 public class MissingDependencyItem extends CustomRarityItem {
     private final String missingDepID;
     public MissingDependencyItem(Properties pProperties, String pMissingDep) {
-        super(pProperties, () -> DefaultRarities.DEPENDENCY_MISSING.get());
+        super(pProperties, DefaultRarities.DEPENDENCY_MISSING);
         this.missingDepID = pMissingDep;
     }
 

@@ -26,19 +26,19 @@ public class ItemHelper {
         return new ArmorItem(pMaterial, ArmorItem.Type.BOOTS, pProperties);
     }
 
-    public static ArmorItem helmet(ArmorMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static ArmorItem helmet(ArmorMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         return new RarityArmorItem(pMaterial, ArmorItem.Type.HELMET, pProperties, pRarity);
     }
 
-    public static ArmorItem chestplate(ArmorMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static ArmorItem chestplate(ArmorMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         return new RarityArmorItem(pMaterial, ArmorItem.Type.CHESTPLATE, pProperties, pRarity);
     }
 
-    public static ArmorItem leggings(ArmorMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static ArmorItem leggings(ArmorMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         return new RarityArmorItem(pMaterial, ArmorItem.Type.LEGGINGS, pProperties, pRarity);
     }
 
-    public static ArmorItem boots(ArmorMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static ArmorItem boots(ArmorMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         return new RarityArmorItem(pMaterial, ArmorItem.Type.BOOTS, pProperties, pRarity);
     }
 
@@ -82,7 +82,7 @@ public class ItemHelper {
         }
     }
 
-    public static <T extends ArmorItem> T customHelmet(Class<T> clazz, IArmorEffectMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customHelmet(Class<T> clazz, IArmorEffectMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         try {
             return clazz
                     .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Supplier.class, Item.Properties.class)
@@ -92,7 +92,7 @@ public class ItemHelper {
         }
     }
 
-    public static <T extends ArmorItem> T customChestplate(Class<T> clazz, IArmorEffectMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customChestplate(Class<T> clazz, IArmorEffectMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         try {
             return clazz
                     .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Supplier.class, Item.Properties.class)
@@ -102,7 +102,7 @@ public class ItemHelper {
         }
     }
 
-    public static <T extends ArmorItem> T customLeggings(Class<T> clazz, IArmorEffectMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customLeggings(Class<T> clazz, IArmorEffectMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         try {
             return clazz
                     .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Supplier.class, Item.Properties.class)
@@ -112,7 +112,7 @@ public class ItemHelper {
         }
     }
 
-    public static <T extends ArmorItem> T customBoots(Class<T> clazz, IArmorEffectMaterial pMaterial, Supplier<RDSRarity> pRarity, Item.Properties pProperties) {
+    public static <T extends ArmorItem> T customBoots(Class<T> clazz, IArmorEffectMaterial pMaterial, RDSRarity pRarity, Item.Properties pProperties) {
         try {
             return clazz
                     .getConstructor(IArmorEffectMaterial.class, ArmorItem.Type.class, Supplier.class, Item.Properties.class)

@@ -16,7 +16,13 @@ import net.realdarkstudios.rdslib.block.entity.AbstractFurnaceLikeBlockEntityV2;
 import net.realdarkstudios.rdslib.screen.slot.CustomFurnaceFuelSlotV2;
 import net.realdarkstudios.rdslib.screen.slot.CustomFurnaceOutputSlot;
 
+@Deprecated(since = "4.0.3.0")
 public abstract class AbstractFurnaceLikeMenuV2 extends AbstractContainerMenu {
+    /**
+     * This class is now deprecated.
+     * Please use {@link } instead
+     * @deprecated Since: 4.0.3.0
+     */
     public final AbstractFurnaceLikeBlockEntityV2 blockEntity;
     private final Level level;
     private final ContainerData data;

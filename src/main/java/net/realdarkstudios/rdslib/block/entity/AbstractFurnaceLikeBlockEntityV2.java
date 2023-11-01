@@ -34,8 +34,8 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlock;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlockV2;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlock;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlockV2;
 import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
 import net.realdarkstudios.rdslib.util.inventory.InventoryDirectionWrapper;
 import net.realdarkstudios.rdslib.util.inventory.InventoryDirectonEntry;
@@ -47,7 +47,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Deprecated(since="4.0.3.0")
 public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity implements WorldlyContainer, MenuProvider {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockEntityV3} instead
+     * @deprecated Since: 4.0.3.0
+     */
+
     //protected NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
         @Override

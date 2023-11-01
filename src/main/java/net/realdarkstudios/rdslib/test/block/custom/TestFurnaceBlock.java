@@ -6,7 +6,7 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.BlockEntityTicker;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlockV2;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlockV2;
 import net.realdarkstudios.rdslib.test.block.entity.TestBlockEntities;
 import net.realdarkstudios.rdslib.test.block.entity.TestFurnaceBlockEntity;
 import org.jetbrains.annotations.Nullable;

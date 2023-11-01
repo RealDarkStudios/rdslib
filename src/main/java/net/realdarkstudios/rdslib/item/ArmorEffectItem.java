@@ -15,7 +15,7 @@ import java.util.function.Supplier;
 public class ArmorEffectItem extends RarityArmorItem {
     private final IArmorEffectMaterial effectMaterial;
 
-    public ArmorEffectItem(IArmorEffectMaterial material, Type type, Supplier<RDSRarity> pRarity, Properties settings) {
+    public ArmorEffectItem(IArmorEffectMaterial material, Type type, RDSRarity pRarity, Properties settings) {
         super(material, type, settings, pRarity);
         this.effectMaterial = material;
     }

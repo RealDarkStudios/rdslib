@@ -12,7 +12,12 @@ import net.minecraftforge.registries.RegistryBuilder;
 
 import java.util.function.Supplier;
 
+@Deprecated(since = "4.0.3.0")
 public class RDSRegistries {
+    /**
+     * This class has now been deprecated.
+     * @deprecated Since: 4.0.3.0
+     */
     public static final ResourceKey<Registry<RDSRarity>> RARITIES = ResourceKey.createRegistryKey(new ResourceLocation(RDSLib.MODID, "rarities"));
     private static final DeferredRegister<RDSRarity> RARITIES_DR = DeferredRegister.create(RARITIES, RDSLib.MODID);
     private static final Supplier<IForgeRegistry<RDSRarity>> RARITIES_REG = RARITIES_DR.makeRegistry(RegistryBuilder::new);

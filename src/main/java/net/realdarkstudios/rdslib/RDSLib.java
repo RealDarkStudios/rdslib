@@ -15,7 +15,6 @@ import net.minecraftforge.fml.loading.FMLLoader;
 import net.realdarkstudios.rdslib.rarity.DefaultRarities;
 import net.realdarkstudios.rdslib.registry.RDSRegistries;
 import net.realdarkstudios.rdslib.registry.RegistryManager;
-import net.realdarkstudios.rdslib.test.TestRarities;
 import net.realdarkstudios.rdslib.test.block.TestBlocks;
 import net.realdarkstudios.rdslib.test.block.entity.TestBlockEntities;
 import net.realdarkstudios.rdslib.test.item.TestItems;
@@ -29,7 +28,7 @@ import org.slf4j.Logger;
 public class RDSLib {
     public static final String MODID = "rdslib";
     public static final Logger LOGGER = LogUtils.getLogger();
-    public static final Version VERSION = Version.fromModId(MODID, 2);
+    public static final Version VERSION = Version.fromModId(MODID, 0);
     public static boolean isTestMode = false;
     public static final RegistryManager regManager = RegistryManager.getOrCreate(MODID);
 
@@ -78,8 +77,6 @@ public class RDSLib {
         LOGGER.info("=============================");
 
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
-
-        TestRarities.register(modEventBus);
 
         TestItems.register(modEventBus);
         TestBlocks.register(modEventBus);

@@ -9,7 +9,13 @@ import net.minecraftforge.event.ForgeEventFactory;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
+@Deprecated(since = "4.0.3.0")
 public class CustomFurnaceOutputSlot extends SlotItemHandler {
+    /**
+     * This class is now deprecated.
+     * Please use {@link } instead
+     * @deprecated Since: 4.0.3.0
+     */
     private final Player player;
     private int removeCount;
 

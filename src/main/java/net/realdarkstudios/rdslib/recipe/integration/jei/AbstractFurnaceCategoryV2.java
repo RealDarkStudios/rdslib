@@ -9,32 +9,26 @@ import mezz.jei.api.gui.drawable.IDrawableAnimated;
 import mezz.jei.api.gui.ingredient.IRecipeSlotsView;
 import mezz.jei.api.helpers.IGuiHelper;
 import mezz.jei.api.recipe.IFocusGroup;
-import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
-import net.realdarkstudios.rdslib.recipe.RecipeUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.level.block.Block;
+import net.realdarkstudios.rdslib.recipe.RecipeUtil;
 
 import static mezz.jei.api.recipe.RecipeIngredientRole.INPUT;
 import static mezz.jei.api.recipe.RecipeIngredientRole.OUTPUT;
 
-@Deprecated(since = "4.0.3.0")
-public abstract class AbstractFurnaceCategory<T extends AbstractFurnaceLikeRecipe> extends FurnaceVariantRecipeCategory<T> {
-    /**
-     * This class is now deprecated.
-     * Please use {@link AbstractFurnaceCategoryV2<T>} instead
-     * @deprecated Since: 4.0.3.0
-     */
+public abstract class AbstractFurnaceCategoryV2<T extends AbstractCookingRecipe> extends FurnaceVariantRecipeCategory<T> {
     private final IDrawable background;
     private final int regularCookTime;
     private final IDrawable icon;
     private final Component localizedName;
     private final LoadingCache<Integer, IDrawableAnimated> cachedArrows;
 
-    public AbstractFurnaceCategory(IGuiHelper guiHelper, Block icon, String translationKey, int regularCookTime) {
+    public AbstractFurnaceCategoryV2(IGuiHelper guiHelper, Block icon, String translationKey, int regularCookTime) {
         super(guiHelper);
         this.background = guiHelper.createDrawable(VANILLA_GUI, 0, 114, 82, 54);
         this.regularCookTime = regularCookTime;

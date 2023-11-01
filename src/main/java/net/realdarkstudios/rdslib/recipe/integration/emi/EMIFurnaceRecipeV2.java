@@ -6,32 +6,26 @@ import dev.emi.emi.api.render.EmiTexture;
 import dev.emi.emi.api.stack.EmiIngredient;
 import dev.emi.emi.api.stack.EmiStack;
 import dev.emi.emi.api.widget.WidgetHolder;
-import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
-import net.realdarkstudios.rdslib.recipe.RecipeUtil;
 import net.minecraft.client.gui.screens.inventory.tooltip.ClientTooltipComponent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
 import net.minecraft.world.level.material.Fluids;
+import net.realdarkstudios.rdslib.recipe.RecipeUtil;
 
 import java.util.List;
 
-@Deprecated(since = "4.0.3.0")
-public class EMIFurnaceRecipe implements EmiRecipe {
-    /**
-     * This class is now deprecated.
-     * Please use {@link EMIFurnaceRecipeV2} instead
-     * @deprecated Since: 4.0.3.0
-     */
+public class EMIFurnaceRecipeV2 implements EmiRecipe {
     private final ResourceLocation id;
     private final EmiRecipeCategory category;
     private final EmiIngredient input;
     private final EmiStack output;
-    private final AbstractFurnaceLikeRecipe recipe;
+    private final AbstractCookingRecipe recipe;
     private final int fuelMultiplier;
     private final boolean infiniBurn;
 
-    public EMIFurnaceRecipe(AbstractFurnaceLikeRecipe recipe, EmiRecipeCategory category, int fuelMultiplier, boolean infiniBurn) {
+    public EMIFurnaceRecipeV2(AbstractCookingRecipe recipe, EmiRecipeCategory category, int fuelMultiplier, boolean infiniBurn) {
         this.id = recipe.getId();
         this.category = category;
         input = EmiIngredient.of(recipe.getIngredients().get(0));

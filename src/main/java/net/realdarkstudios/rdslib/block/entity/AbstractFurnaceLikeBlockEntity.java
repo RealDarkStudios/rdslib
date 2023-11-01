@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.realdarkstudios.rdslib.RDSLib;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlock;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlock;
 import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -46,7 +46,13 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@Deprecated(since = "4.0.3.0")
 public abstract class AbstractFurnaceLikeBlockEntity extends BlockEntity implements WorldlyContainer, MenuProvider, StackedContentsCompatible {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockEntityV3} instead
+     * @deprecated Since: 4.0.3.0
+     */
     protected static final int SLOT_INPUT = 0;
     protected static final int SLOT_FUEL = 1;
     protected static final int SLOT_RESULT = 2;

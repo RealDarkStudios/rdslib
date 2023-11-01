@@ -21,7 +21,7 @@ public class TestRecipeProvider extends RecipeProvider implements IConditionBuil
 
     @Override
     protected void buildRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
-        helper.addCustomFurnaceRecipes(pFinishedRecipeConsumer, TestRecipes.NETHER_BRICK_FURNACE.get());
+        helper.addCustomFurnaceRecipes(pFinishedRecipeConsumer, TestRecipes.NETHER_BRICK_FURNACE.get(), "_from_test_smelting_");
         helper.customFurnaceRecipe(pFinishedRecipeConsumer, TestBlocks.NETHER_BRICK_FURNACE.get(), Blocks.NETHER_BRICKS, Blocks.FURNACE);
     }
 }

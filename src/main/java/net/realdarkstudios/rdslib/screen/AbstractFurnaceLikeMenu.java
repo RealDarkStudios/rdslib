@@ -17,8 +17,13 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
 
+@Deprecated(since = "4.0.3.0")
 public abstract class AbstractFurnaceLikeMenu extends AbstractContainerMenu {
-
+    /**
+     * This class is now deprecated.
+     * Please use {@link } instead
+     * @deprecated Since: 4.0.3.0
+     */
     public final AbstractFurnaceLikeBlockEntity blockEntity;
     private final Level level;
     private final ContainerData data;

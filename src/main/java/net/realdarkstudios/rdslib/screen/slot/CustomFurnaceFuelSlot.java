@@ -6,7 +6,12 @@ import net.minecraft.world.item.Items;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 
+@Deprecated(since = "4.0.3.0")
 public class CustomFurnaceFuelSlot extends SlotItemHandler {
+    /**
+     * This class is now deprecated.
+     * @deprecated Since: 4.0.3.0
+     */
     private final AbstractFurnaceLikeMenu menu;
 
     public CustomFurnaceFuelSlot(IItemHandler pHandler, AbstractFurnaceLikeMenu pFurnaceMenu, int pSlot, int pXPosition, int pYPosition) {
