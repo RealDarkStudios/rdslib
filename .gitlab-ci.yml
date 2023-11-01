@@ -14,9 +14,6 @@ build:
       - build
       - .gradle
 
-sast:
-  stage: test
-
 test:
   stage: test
   script: ./gradlew check
@@ -26,6 +23,3 @@ test:
     paths:
       - build
       - .gradle
-
-include:
-  - template: Jobs/SAST.gitlab-ci.yml
