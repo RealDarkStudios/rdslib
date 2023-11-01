@@ -42,7 +42,14 @@ import org.jetbrains.annotations.Nullable;
 import java.util.List;
 import java.util.Optional;
 
+@Deprecated(since = "3.0.3.0")
 public abstract class AbstractFurnaceLikeBlockEntity extends BlockEntity implements MenuProvider {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockEntityV3} instead
+     * @deprecated Since: 3.0.3.0
+     */
+
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
         @Override
         protected void onContentsChanged(int slot) {
