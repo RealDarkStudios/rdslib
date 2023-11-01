@@ -13,7 +13,6 @@ import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.fml.loading.FMLLoader;
 import net.realdarkstudios.rdslib.rarity.DefaultRarities;
-import net.realdarkstudios.rdslib.registry.RDSRegistries;
 import net.realdarkstudios.rdslib.registry.RegistryManager;
 import net.realdarkstudios.rdslib.test.block.TestBlocks;
 import net.realdarkstudios.rdslib.test.block.entity.TestBlockEntities;
@@ -37,7 +36,6 @@ public class RDSLib {
 
         modEventBus.addListener(this::commonSetup);
 
-        RDSRegistries.registerRegistries(modEventBus);
         DefaultRarities.registerDefaultRarities(modEventBus);
 
         if (!FMLLoader.isProduction()) {
