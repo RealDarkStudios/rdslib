@@ -16,6 +16,10 @@ base {
     archivesName = mod_id
 }
 
+java {
+    withSourcesJar()
+}
+
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
@@ -188,12 +192,39 @@ tasks.named('jar', Jar).configure {
 publishing {
     publications {
         register('mavenJava', MavenPublication) {
-            artifact jar
+            pom {
+                groupId = mod_group_id
+                artifactId = mod_id
+                version = version
+            }
+
+            artifact(jar) {
+                builtBy jar
+                classifier ''
+            }
+
+            artifact(sourcesJar) {
+                builtBy sourcesJar
+                classifier 'sources'
+            }
+
+            //from components.java
         }
     }
     repositories {
         maven {
-            url "file://${project.projectDir}/mcmodsrepo"
+            try {
+                credentials {
+                    username primaryMavenToken
+                    password primaryMavenSecret
+                }
+
+                def snapshotsURL = "${primaryMavenURL}/snapshots/"
+                def releasesURL = "${primaryMavenURL}/releases/"
+                url version.contains("SNAPSHOT") ? snapshotsURL : releasesURL
+            } catch(Exception e) {
+                url "file://${project.projectDir}/mcmodsrepo"
+            }
         }
     }
 }
