@@ -34,8 +34,8 @@ import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.ItemStackHandler;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlock;
-import net.realdarkstudios.rdslib.block.AbstractFurnaceLikeBlockV2;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlock;
+import net.realdarkstudios.rdslib.block.custom.AbstractFurnaceLikeBlockV2;
 import net.realdarkstudios.rdslib.recipe.AbstractFurnaceLikeRecipe;
 import net.realdarkstudios.rdslib.util.inventory.InventoryDirectionWrapper;
 import net.realdarkstudios.rdslib.util.inventory.InventoryDirectonEntry;
@@ -47,7 +47,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
+@Deprecated(since="4.0.3.0")
 public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity implements WorldlyContainer, MenuProvider {
+    /**
+     * This class is now deprecated.
+     * Please use {@link AbstractFurnaceLikeBlockEntityV3} instead
+     * @deprecated Since: 4.0.3.0
+     */
+
     //protected NonNullList<ItemStack> items = NonNullList.withSize(3, ItemStack.EMPTY);
     private final ItemStackHandler itemHandler = new ItemStackHandler(3) {
         @Override
@@ -67,7 +74,7 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
     };;
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
     protected final ContainerData data;
-    private int defaultCookingTime;
+    private final int defaultCookingTime;
     private int cookingProgress = 0;
     private int maxCookingProgress;
     private int litProgress = 0;
@@ -216,6 +223,8 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
                 recipe = Optional.empty();
             }
 
+            recipe.ifPresent(abstractFurnaceLikeRecipe -> pEntity.maxCookingProgress = getTotalCookTime(abstractFurnaceLikeRecipe));
+
             int i = 64;
             if (!pEntity.isLit() && recipe.isPresent() && pEntity.canBurn(pLevel.registryAccess(), recipe.get(), pEntity.itemHandler, i)) {
                 pEntity.litProgress = pEntity.getBurnDuration(ingredient);
@@ -240,7 +249,6 @@ public abstract class AbstractFurnaceLikeBlockEntityV2 extends BlockEntity imple
                 setChanged(pLevel, pPos, pState);
                 if (pEntity.cookingProgress == pEntity.maxCookingProgress) {
                     pEntity.cookingProgress = 0;
-                    pEntity.maxCookingProgress = getTotalCookTime(recipe.get());
                     if (pEntity.burn(pLevel.registryAccess(), recipe.get(), pEntity.itemHandler, i)) {
                         pEntity.setRecipeUsed(recipe.get());
                     }

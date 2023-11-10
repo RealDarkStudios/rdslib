@@ -6,7 +6,12 @@ import net.minecraftforge.items.IItemHandler;
 import net.minecraftforge.items.SlotItemHandler;
 import net.realdarkstudios.rdslib.screen.AbstractFurnaceLikeMenuV2;
 
+@Deprecated(since = "4.0.3.0")
 public class CustomFurnaceFuelSlotV2 extends SlotItemHandler {
+    /**
+     * This class is now deprecated.
+     * @deprecated Since: 4.0.3.0
+     */
     private final AbstractFurnaceLikeMenuV2 menu;
 
     public CustomFurnaceFuelSlotV2(IItemHandler pHandler, AbstractFurnaceLikeMenuV2 pFurnaceMenu, int pSlot, int pXPosition, int pYPosition) {

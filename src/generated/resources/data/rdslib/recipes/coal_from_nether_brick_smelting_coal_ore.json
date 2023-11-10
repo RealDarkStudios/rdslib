@@ -1,0 +1,10 @@
+{
+  "type": "rdslib:nether_brick_furnace",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "group": "coal",
+  "ingredient": {
+    "item": "minecraft:coal_ore"
+  },
+  "result": "minecraft:coal"
+}
