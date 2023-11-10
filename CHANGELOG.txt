@@ -1,0 +1,41 @@
+- v4.0.3.0
+  - Updated Versioning Scheme
+    - OLD: 1.20.X-forge-0.0.3.0
+    - NEW: 4.0.3.0
+      - 1.19.2 -> 1
+      - 1.19.3 -> 2
+      - 1.19.4 -> 3
+      - 1.20(.1) -> 4
+      * Some versions may have SNAPSHOT in the name. These versions are found in the snapshots folder on the maven
+  - Updated NeoForge to 47.1.79
+  - Updated JEI to 15.2.0.27
+  - Updated EMI to 1.0.24+1.20.1
+  - Updated REI to 12.0.672
+  - Updated mappings to 2023.09.03-1.20.1
+  - Custom Furnaces V3
+  - Deprecated CFV1 and CFV2 classes
+  - Returned Rarities to their initial form (no longer requiring a registry)
+  - Add CustomRarityBlockItem
+  - Add fire and smoke particles to AbstractFurnaceLikeBlockV3
+  - Group ID is now net.realdarkstudios
+  - Added Digitalunderworlds Maven support
+  - Updated README.md
+  - Updated mods.toml to point updateJsonURL to versions.json
+
+- v1.20.X-forge-0.0.3.3
+  - Added ICapability to auto-register capabilities
+
+- v1.20.X-forge-0.0.3.2
+  - Add getters for the Version class
+
+- v1.20.X-forge-0.0.3.1
+  - Adopt new Versioning System (moved from 0.3.0-beta-9d to 0.0.3.1)
+  - Add the Version class (for comparing Versions)
+  - Add VERSION constant to RDSLib.java for mods to compare against
+  - Add changelog (finally)
+  - Update Forge to 47.1.28
+  - Update Run Configs to split into run/client, run/server, run/data, and run/gts instead of all in run/
+  - Update common, client, and server messages
+  - Update package from darkstudios to realdarkstudios, to better align with current username
+  - Rename rdslib.mixins.json to mixins.rdslib.json, to be more in line with my other mods
+  - Fix LICENSE as it was GPL
