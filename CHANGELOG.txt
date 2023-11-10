@@ -1,0 +1,23 @@
+- v1.0.3.0
+  - Updated Versioning Scheme
+    - OLD: 1.19.2-forge-0.0.3.0
+    - NEW: 1.0.3.0
+      - 1.19.2 -> 1
+      - 1.19.3 -> 2
+      - 1.19.4 -> 3
+      - 1.20(.1) -> 4
+      * Some versions may have SNAPSHOT in the name. These versions are found in the snapshots folder on the maven
+  - Updated Forge to 43.3.2
+  - Updated JEI to 11.6.0.1018
+  - Updated EMI to 1.0.24+1.19.2
+  - Updated REI to 9.1.668
+  - Updated mappings to 2022.11.27-1.19.2
+  - Custom Furnaces V3
+  - Deprecated CFV1 and CFV2 classes
+  - Returned Rarities to their initial form (no longer requiring a registry)
+  - Add CustomRarityBlockItem
+  - Add fire and smoke particles to AbstractFurnaceLikeBlockV3
+  - Group ID is now net.realdarkstudios
+  - Added Digitalunderworlds Maven support
+  - Updated README.md
+  - Updated mods.toml to point updateJsonURL to versions.json
