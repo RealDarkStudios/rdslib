@@ -1,9 +1,0 @@
-{
-  "type": "rdslib:nether_brick_furnace",
-  "cookingtime": 100,
-  "experience": 0.1,
-  "ingredient": {
-    "item": "minecraft:cyan_terracotta"
-  },
-  "result": "minecraft:cyan_glazed_terracotta"
-}
