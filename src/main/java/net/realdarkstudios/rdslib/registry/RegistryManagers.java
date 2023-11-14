@@ -1,10 +1,11 @@
 package net.realdarkstudios.rdslib.registry;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Objects;
 
 public class RegistryManagers {
-    private HashMap<String, RegistryManager> registryManagerMap = new HashMap<>();
+    private final HashMap<String, RegistryManager> registryManagerMap = new HashMap<>();
     private static RegistryManagers INSTANCE = null;
 
     private RegistryManagers() {
@@ -15,8 +16,16 @@ public class RegistryManagers {
         return registryManagerMap.containsKey(modid);
     }
 
-    public void addManager(String modid, RegistryManager helper) {
-        registryManagerMap.put(modid, helper);
+    public RegistryManager newManager(String modid) {
+        if (!containsRegistry(modid)) {
+            RegistryManager manager = RegistryManager.getOrCreate(modid);
+            registryManagerMap.put(modid, manager);
+            return manager;
+        } else return registryManagerMap.get(modid);
+    }
+
+    public void addManager(String modid, RegistryManager manager) {
+        registryManagerMap.put(modid, manager);
     }
 
     public static RegistryManagers get() {
@@ -29,5 +38,9 @@ public class RegistryManagers {
         } else {
             throw new NullPointerException("The Registry Manager belonging to " + modid + "does not exist!");
         }
+    }
+
+    public List<RegistryManager> getRegistryManagers() {
+        return registryManagerMap.values().stream().toList();
     }
 }
