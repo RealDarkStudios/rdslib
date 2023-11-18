@@ -13,6 +13,11 @@ public class CustomRarityFuelItem extends FuelItem {
         this.rarity = pRarity;
     }
 
+    public CustomRarityFuelItem(Properties pProperties, RDSRarity pRarity, int burnDuration, boolean isBucket) {
+        super(pProperties, burnDuration, isBucket);
+        this.rarity = pRarity;
+    }
+
     @Override
     public Rarity getRarity(ItemStack pStack) {
         return rarity.convert();
