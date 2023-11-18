@@ -7,6 +7,9 @@
   - Removed all generated recipes as they cause... chaos in logs
   - Made RegistryHelpers more usable
   - Removed versions.json
+  - Add FuelItem
+  - Add CustomRarityFuelItem
+
 - v4.0.3.0
   - Updated Versioning Scheme
     - OLD: 1.20.X-forge-0.0.3.0
