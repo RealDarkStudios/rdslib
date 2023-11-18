@@ -219,9 +219,13 @@ publishing {
                     password primaryMavenSecret
                 }
 
-                def snapshotsURL = "${primaryMavenURL}/snapshots/"
-                def releasesURL = "${primaryMavenURL}/releases/"
-                url version.contains("SNAPSHOT") ? snapshotsURL : releasesURL
+                if (project.hasProperty("mvnRelease") && project.mvnRelease == 'true') {
+                    if (version.contains("SNAPSHOT")) println("SNAPSHOT release was almost pushed to the releases repository!")
+                    else url "${primaryMavenURL}/releases/"
+                } else {
+                    url "${primaryMavenURL}/snapshots/"
+                }
+
             } catch(Exception e) {
                 url "file://${project.projectDir}/mcmodsrepo"
             }

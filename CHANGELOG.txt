@@ -9,6 +9,8 @@
   - Removed versions.json
   - Add FuelItem
   - Add CustomRarityFuelItem
+  - Updated the maven publishing block to publish to both repositories for a release or release candidate
+  - Updated README.md
 
 - v4.0.3.0
   - Updated Versioning Scheme
